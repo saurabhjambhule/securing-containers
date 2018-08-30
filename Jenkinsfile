@@ -41,7 +41,7 @@ pipeline
                 }
             }
         }
-        stage('Docker Scan')
+        stage('Push Image')
         {
             when {
                 branch 'master'
