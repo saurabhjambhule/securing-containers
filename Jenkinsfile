@@ -59,7 +59,7 @@ pipeline
             script
                 {
                     sh """
-                        printf "http://localhost:8080/job/securing-container-demo/job/master/"$JOB_NAME"/anchore-results" > anchor.log
+                        printf "http://localhost:8080/job/securing-container-demo/job/master/" > anchor.log
                         printf $JOB_NAME >> anchor.log
                         printf "/anchore-results" >> anchor.log
                     """
