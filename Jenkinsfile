@@ -48,7 +48,8 @@ pipeline
             }
             steps {
                 withDockerRegistry([ credentialsId: "docker", url: "" ]) {
-                sh 'docker push saurabhjambhule/sample:latest'
+                    sh 'docker push saurabhjambhule/sample:latest'
+                }
             }
         }
     }
@@ -56,7 +57,12 @@ pipeline
     {
         always
         {
-
+            script
+                {   
+                    sh """
+                      echo "Done:)"
+                    """
+                }
         }
     }
 }
