@@ -36,7 +36,6 @@ pipeline
             {
                 script
                 {   
-                     docker.image('anchore/jenkins')
                      anchore bundleFileOverride: 'anchore_policies.json', inputQueries: [[query: 'cve-scan all'], [query: 'list-packages all'], [query: 'list-files all'], [query: 'show-pkg-diffs base']], name: 'anchore_images', policyEvalMethod: 'bundlefile'
                 }
             }
@@ -48,7 +47,7 @@ pipeline
             }
             steps {
                 withDockerRegistry([ credentialsId: "docker", url: "" ]) {
-                    sh 'docker push saurabhjambhule/sample:latest'
+                    sh 'docker push alpine:latest'
                 }
             }
         }
