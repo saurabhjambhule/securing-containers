@@ -1,3 +1,2 @@
-FROM ubuntu:latest
+FROM python:latest
 EXPOSE 8888
-RUN echo "welcome"
