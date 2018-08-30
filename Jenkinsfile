@@ -1,8 +1,6 @@
 pipeline
 {
-    agent {
-        docker { image 'anchore/jenkins' }
-    }
+    agent any
     environment 
     {
         VERSION = 'latest'
@@ -38,6 +36,7 @@ pipeline
             {
                 script
                 {   
+                     docker.pull("anchore/jenkins")
                      anchore bundleFileOverride: 'anchore_policies.json', inputQueries: [[query: 'cve-scan all'], [query: 'list-packages all'], [query: 'list-files all'], [query: 'show-pkg-diffs base']], name: 'anchore_images', policyEvalMethod: 'bundlefile'
                 }
             }
