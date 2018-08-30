@@ -47,7 +47,8 @@ pipeline
             }
             steps {
                 withDockerRegistry([ credentialsId: "docker", url: "" ]) {
-                    sh 'docker push alpine:latest'
+                    sh 'docker tag sample:latest saurabhjambhule/sample'
+                    sh 'docker push saurabhjambhule/sample'
                 }
             }
         }
