@@ -59,9 +59,11 @@ pipeline
             script
                 {
                     sh """
-                        echo "http://localhost:8080/job/securing-container-demo/job/master/"$JOB_NAME"/anchore-results" > anchor_link.txt
+                        printf "http://localhost:8080/job/securing-container-demo/job/master/"$JOB_NAME"/anchore-results" > anchor.log
+                        printf $JOB_NAME >> anchor.log
+                        printf "/anchore-results" >> anchor.log
                     """
-                    archiveArtifacts artifacts: 'anchor_link.txt'
+                    archiveArtifacts artifacts: 'anchor.log'
                 }
         }
     }
