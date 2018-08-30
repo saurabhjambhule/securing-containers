@@ -58,13 +58,14 @@ pipeline
         {
             script
                 {
-                    println $JOB_NAME
-                    println $BUILD_NUMBER
-                    pirntln $JENKINS_HOME
+                    println System.getenv('JOB_NAME')
+
                     
                     archiveArtifacts artifacts: 'build/archive/*', fingerprint: true
 
                     sh """
+                        echo $BUILD_NUMBER
+                        echo $JENKINS_HOME
                         echo "http://localhost:8080/job/securing-container-demo/job/master/24/anchore-results"
                     """
                 }
