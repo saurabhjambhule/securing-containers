@@ -1,2 +1,1 @@
-FROM centos:latest
-EXPOSE 8888
+FROM alpine:latest
