@@ -22,7 +22,6 @@ pipeline
             {
                 script
                 {   
-                    IMAGE = "${params.imagename}"
                     docker.build("$IMAGE")
                     sh """
                       echo "$IMAGE ${WORKSPACE}/Dockerfile " > anchore_images
