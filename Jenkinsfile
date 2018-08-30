@@ -60,7 +60,7 @@ pipeline
                 {
                     sh """
                         printf "http://localhost:8080/job/securing-container-demo/job/master/" > anchor.log
-                        printf $JOB_NAME >> anchor.log
+                        printf $JOB_NO >> anchor.log
                         printf "/anchore-results" >> anchor.log
                     """
                     archiveArtifacts artifacts: 'anchor.log'
