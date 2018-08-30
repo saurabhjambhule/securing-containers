@@ -29,7 +29,7 @@ pipeline
                 }
             }
         }
-        stage('Docker Scan')
+        stage('Security Scan')
         {
             steps
             {
