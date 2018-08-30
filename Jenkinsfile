@@ -58,13 +58,10 @@ pipeline
         {
             script
                 {
-
                     sh """
-                        echo $JOB_NAME
-                        echo $BUILD_NUMBER
-                        echo $JENKINS_HOME
-                        echo "http://localhost:8080/job/securing-container-demo/job/master/24/anchore-results"
+                        echo "http://localhost:8080/job/securing-container-demo/job/master/"$JOB_NAME"/anchore-results" > anchor_link
                     """
+                    archiveArtifacts artifacts: 'anchor_link'
                 }
         }
     }
