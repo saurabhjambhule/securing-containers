@@ -58,6 +58,7 @@ pipeline
         {
             script
                 {   
+                    archiveArtifacts artifacts: '${WORKSPACE}/artifact/*', fingerprint: true
                     sh """
                       echo "Done:)"
                     """
