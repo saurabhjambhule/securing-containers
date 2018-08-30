@@ -58,7 +58,6 @@ pipeline
         {
             script
                 {
-                    archiveArtifacts artifacts: 'build/archive/*', fingerprint: true
 
                     sh """
                         echo $JOB_NAME
