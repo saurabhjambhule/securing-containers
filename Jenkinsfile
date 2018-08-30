@@ -1,6 +1,8 @@
 pipeline
 {
-    agent any
+    agent {
+        docker { image 'anchore/jenkins' }
+    }
     environment 
     {
         VERSION = 'latest'
