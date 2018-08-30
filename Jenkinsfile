@@ -59,7 +59,7 @@ pipeline
             script
                 {
                     sh """
-                        echo "http://localhost:8080/job/securing-container-demo/job/master/"$JOB_NAME"/anchore-results" > anchor_link
+                        echo "http://localhost:8080/job/securing-container-demo/job/master/"$JOB_NAME"/anchore-results" > anchor_link.txt
                     """
                     archiveArtifacts artifacts: 'anchor_link'
                 }
