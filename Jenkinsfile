@@ -41,13 +41,22 @@ pipeline
                 }
             }
         }
+        stage('Docker Scan')
+        {
+            when {
+                branch 'master'
+            }
+            steps {
+                withDockerRegistry([ credentialsId: "docker", url: "" ]) {
+                sh 'docker push saurabhjambhule/sample:latest'
+            }
+        }
     }
     post
     {
         always
         {
-            //sh "docker rmi $IMAGE | true"
-            docker images
+
         }
     }
 }
