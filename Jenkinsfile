@@ -58,8 +58,8 @@ pipeline
         {
             script
                 {   
-                    archiveArtifacts artifacts: 'build/archive/*', fingerprint: true
                     sh """
+                      ls -la
                       echo "Done:)"
                     """
                 }
